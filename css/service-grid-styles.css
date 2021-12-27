@@ -1075,6 +1075,14 @@ a.round-button {
     text-decoration: none;
 }
 
+.ltr .social-share{   
+    left: 0;
+}
+
+.rtl .social-share{   
+    right: 0;
+}
+
 .social-share:visited,
 .social-share:hover,
 .social-share:active,
