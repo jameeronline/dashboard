@@ -360,7 +360,7 @@ function renderPlates() {
             //Init social share
             $("[data-toggle=popover]").popover({
                 html: true,
-                placement: $('body').hasClass('rtl') ? 'left' : 'right',
+                placement: placement,
                 content: function() {
                     var content = $(this).attr("data-popover-content");
                     return $(content).children(".popover-body").html();
