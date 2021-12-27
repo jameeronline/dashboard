@@ -354,7 +354,7 @@ function renderPlates() {
             if(window.innerWidth < 768){
                 var placement = "bottom";
             }else{
-                var placement = $('body').hasClass('rtl') ? 'left' : 'right',
+                var placement = $('body').hasClass('rtl') ? 'left' : 'right';
             }
 
             //Init social share
