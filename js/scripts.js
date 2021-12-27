@@ -236,7 +236,8 @@ function dashboardUpdate() {
 
 function renderPlates() {
     //$.getJSON("../auction-dashboard/js/auctionData.json?v=" + Math.random(), function(result) {
-        $.getJSON("/js/auctionData.json?v="+Math.random(), function(result) {
+    $.getJSON("/dashboard/js/auctionData.json?v=" + Math.random(), function(result) {
+        //$.getJSON("/js/auctionData.json?v="+Math.random(), function(result) {
         //Get Plates and Reset Output
         var plates = result;
         var output = '';
