@@ -1,0 +1,76 @@
+.simply-countdown {
+    display: flex;
+    justify-content: center;
+}
+
+.simply-countdown>.simply-section {}
+
+.simply-countdown>.simply-section .simply-amount,
+.simply-countdown>.simply-section .simply-word {
+    display: block;
+    text-align: center;
+    padding: 0 6px;
+}
+
+.simply-countdown>.simply-section .simply-amount {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.simply-countdown>.simply-section .simply-word {
+    font-size: 12px;
+}
+
+.simply-countdown>.simply-section .simply-amount {
+    background: linear-gradient(180deg, #00ab67, #1d9f6f);
+    background: linear-gradient(0deg, rgb(23 132 91) 0%, rgb(29 159 111) 50%, rgb(44 185 133) 51%, rgb(30 144 102) 100%);
+    padding: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin: 0 4px;
+    margin-bottom: 6px;
+    width: 50px;
+    height: 50px;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-size: 36px;
+    font-weight: bold;
+    box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.simply-countdown>.simply-section .simply-amount:before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: rgb(24 152 105 / 0.5);
+    top: 50%;
+    margin-top: 0px;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.service-auction-counter {
+    background: #fbfbe2;
+    margin: 0;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f1f1c5;
+}
+
+.service-auction-counter h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 18px;
+}
+
+@media screen and (max-width: 767px){
+    .service-auction-counter{
+        margin-top: 12px;
+    }
+}
