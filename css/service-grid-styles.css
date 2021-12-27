@@ -1155,7 +1155,7 @@ a.round-button {
 }
 
 
-@media screen and (max-width: 767px){
+/*@media screen and (max-width: 767px){
     .popover{
         display: flex;
         position: fixed;
@@ -1208,4 +1208,4 @@ a.round-button {
     .popover.fade.in {
         height:25%;
     }    
-}
+}*/
