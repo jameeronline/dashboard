@@ -351,10 +351,16 @@ function renderPlates() {
             //     shares: ["email", "twitter", "facebook", "whatsapp"]
             // });
 
+            if(window.innerWidth < 768){
+                var placement = "bottom";
+            }else{
+                var placement = $('body').hasClass('rtl') ? 'left' : 'right',
+            }
+
             //Init social share
             $("[data-toggle=popover]").popover({
                 html: true,
-                placement: $('body').hasClass('rtl') ? 'left' : 'right',
+                placement: placement,
                 content: function() {
                     var content = $(this).attr("data-popover-content");
                     return $(content).children(".popover-body").html();
