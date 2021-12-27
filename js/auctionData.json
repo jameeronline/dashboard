@@ -1,0 +1,44 @@
+[
+  {
+    "plateNumber": "0044",
+    "plateLetterEn": "A B",
+    "plateLetterAr": "ا ب¨",
+    "numberOfBids": 3,
+    "auctionStatusId": 5,
+    "auctionCategory": 3,
+    "topBiddingAmount": 6500,
+    "auctionEndDate": "2021-12-26 20:00:00.0",
+    "auctionDataReloadedTime": "2021-12-26 13:39:13.149",
+    "publishedDate": "",
+    "auctionStartDate": "",
+    "plateTypeID": 23
+  },
+  {
+    "plateNumber": "1111",
+    "plateLetterEn": "B S J",
+    "plateLetterAr": "ب س ح ",
+    "numberOfBids": 1,
+    "auctionStatusId": 5,
+    "auctionCategory": 2,
+    "topBiddingAmount": 10500,
+    "auctionEndDate": "2021-12-26 20:00:00.0",
+    "auctionDataReloadedTime": "2021-12-26 13:39:13.149",
+    "publishedDate": "",
+    "auctionStartDate": "",
+    "plateTypeID": 22
+  },
+  {
+    "plateNumber": "9999",
+    "plateLetterEn": "B R V",
+    "plateLetterAr": "ب ر ى",
+    "numberOfBids": 3,
+    "auctionStatusId": 5,
+    "auctionCategory": 1,
+    "topBiddingAmount": 11500,
+    "auctionEndDate": "2021-12-26 20:00:00.0",
+    "auctionDataReloadedTime": "2021-12-26 13:39:13.149",
+    "publishedDate": "",
+    "auctionStartDate": "",
+    "plateTypeID": 21
+  }
+]
