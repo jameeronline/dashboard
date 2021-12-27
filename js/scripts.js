@@ -235,8 +235,8 @@ function dashboardUpdate() {
 }
 
 function renderPlates() {
-    $.getJSON("../auction-dashboard/js/auctionData.json?v=" + Math.random(), function(result) {
-        //$.getJSON("../auctionData.json?v="+Math.random(), function(result) {
+    //$.getJSON("../auction-dashboard/js/auctionData.json?v=" + Math.random(), function(result) {
+        $.getJSON("auctionData.json?v="+Math.random(), function(result) {
         //Get Plates and Reset Output
         var plates = result;
         var output = '';
@@ -388,9 +388,9 @@ function init() {
 }
 
 // Interval Updates
-setInterval(function() {
-    dashboardUpdate();
-}, 3000);
+// setInterval(function() {
+//     dashboardUpdate();
+// }, 3000);
 
 
 //Init
