@@ -86,7 +86,7 @@ function initListJS() {
         valueNames: ['sortAmount', 'sortIndex', 'filterPlateType']
     });
 
-    // No Result 
+    // No Result
     listGroup.on('updated', function(list) {
         if (list.matchingItems.length > 0) {
             $('.no-result').hide();
@@ -207,7 +207,7 @@ function dashboardUpdate() {
                         let plateLetterEn = field.plateLetterEn;
                         let plateTypeID = field.plateTypeID;
 
-                        //Element to update                
+                        //Element to update
                         var $el_target = $('.services-grid-item[data-index="' + i + '"]');
                         var domBidValue = parseInt($el_target.find('.numberofbids').text());
                         var domBidAmount = parseInt($el_target.find('.sortAmount').text());
@@ -326,20 +326,18 @@ function renderPlates() {
 
                 var html =
                     `<li class="col-md-4" id="${socialMediaProps.plateID}">
-                        <div class="services-grid-item plate_${palateCategories[auctionCategory-1]} platetype_${plateType.name}" data-platetype="${plateTypeID}" data-index="${i}">                                      
+                        <div class="services-grid-item plate_${palateCategories[auctionCategory-1]} platetype_${plateType.name}" data-platetype="${plateTypeID}" data-index="${i}">
                             <div class="ribbon ${palateCategories[auctionCategory-1]}"><span>${label_categories[auctionCategory-1]}</span></div>
                             <div class="card__platenumber">
-                                <div class="card__platenumber--info">                                    
+                                <div class="card__platenumber--info">
                                     <a class="social-share" href="javascript:void(0)" tabindex="0" role="button" data-trigger="focus" data-toggle="popover" data-popover-content="#social-share-icons-${i}">
                                         <i class="fa fa-share-alt" aria-hidden="true"></i>
                                     </a>
                                     <div class="social-share-icons-wrapper hide" id="social-share-icons-${i}">
                                         <div class="popover-heading">Social Share Options</div>
                                         <div class="popover-body">
-                                            <p>An online auction is an auction that takes place via the internet, allowing users to sell or bid for products and services online.</p> 
                                             <div class="social-share-icons">
                                                 <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                <a href="javascript:void(0)" class="button" data-sharer="facebook" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                                 <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                                                 <a href="javascript:void(0)" class="button" data-sharer="snapchat" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i></a>
                                             </div>
@@ -371,11 +369,11 @@ function renderPlates() {
                 output += html;
             });
 
-            // Update DOM          
+            // Update DOM
             $('#grid-dashboard').html(output);
             //Initialzie Coundown
             InitializeCountdown();
-            //Init List.JS     
+            //Init List.JS
             initListJS();
 
             // $("#social-share").jsSocials({
