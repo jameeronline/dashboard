@@ -123,17 +123,17 @@ function initListJS() {
         switch ($(this).val()) {
             case 'FILTER_PRIVATE':
                 listGroup.filter(function(item) {
-                    return item.values().filterPlateType == 21 ? true : false;
+                    return item.values().filterPlateType == "private" ? true : false;
                 });
                 break;
             case 'FILTER_COMMERCIAL':
                 listGroup.filter(function(item) {
-                    return item.values().filterPlateType == 22 ? true : false;
+                    return item.values().filterPlateType == "transport" ? true : false;
                 });
                 break;
             case 'FILTER_MOTOR':
                 listGroup.filter(function(item) {
-                    return item.values().filterPlateType == 23 ? true : false;
+                    return item.values().filterPlateType == "motorcycle" ? true : false;
                 });
                 break;
             case '0':
@@ -181,7 +181,7 @@ function checkUpdates(plateNum, plateLetter, bidValue, bids, plateID, domBid, do
 
 // Read JSON
 function dashboardUpdate() {
-    $.getJSON("../auction-dashboard/js/auctionData.json?v=" + Math.random(), function(result) {
+    $.getJSON("/dashboard/js/auctionData.json?v=" + Math.random(), function(result) {
         //$.getJSON("../auctionData.json?v="+Math.random(), function(result) {
         //Get Plates and Reset Output
         var plates = result;
@@ -241,7 +241,31 @@ function renderPlates() {
         var plates = result;
         var output = '';
         var palateCategories = ["diamond", "gold", "silver", "bronze"];
-        var palateTypes = ["private", "transport", "motorcycle"];
+        //var palateTypes = ["private", "transport", "motorcycle"];
+
+        // Enable for Development
+        // var palateTypes = [{
+        //         "name" : "private",
+        //         "id" : 1
+        //     },{
+        //         "name" : "transport",
+        //         "id" : 2
+        //     },{
+        //         "name" : "motorcycle",
+        //         "id" : 21
+        //     }];
+
+        // Enable for Production
+        var palateTypes = [{
+                "name" : "private",
+                "id" : 21
+            },{
+                "name" : "transport",
+                "id" : 22
+            },{
+                "name" : "motorcycle",
+                "id" : 23
+            }];
 
         if (plates.length != 0) {
             $('.form-filters').attr('style', '');
@@ -264,7 +288,15 @@ function renderPlates() {
                 let publishedDate = field.publishedDate;
                 let auctionStatus = field.auctionStatusId;
                 let counterLabel = auctionStatus == 3 ? label_auctionStart : label_auctionEnd;
-                let prodPlateType = plateTypeID - 20;
+                //let prodPlateType = plateTypeID - 20;
+                let plateType = palateTypes[palateTypes.map(function (item) { return item.id; }).indexOf(plateTypeID)];
+
+                let socialMediaProps = {
+                    url: "http://localhost/dashboard/",
+                    hashTags: "absher,auction",
+                    description: "Please find the latest online auction information for plate " + plateNumber + " " + plateLetterEn + " with the highest bid amount " + formatToCurrency(bidAmount),
+                    plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
+                }
 
                 var htmlMotorCyclePlate =
                     `<table class="table table-bordered">
@@ -293,8 +325,8 @@ function renderPlates() {
                     </table>`;
 
                 var html =
-                    `<li class="col-md-4">
-                        <div class="services-grid-item plate_${palateCategories[auctionCategory-1]} platetype_${palateTypes[prodPlateType-1]}" data-platetype="${plateTypeID}" data-index="${i}">                                      
+                    `<li class="col-md-4" id="${socialMediaProps.plateID}">
+                        <div class="services-grid-item plate_${palateCategories[auctionCategory-1]} platetype_${plateType.name}" data-platetype="${plateTypeID}" data-index="${i}">                                      
                             <div class="ribbon ${palateCategories[auctionCategory-1]}"><span>${label_categories[auctionCategory-1]}</span></div>
                             <div class="card__platenumber">
                                 <div class="card__platenumber--info">                                    
@@ -306,9 +338,10 @@ function renderPlates() {
                                         <div class="popover-body">
                                             <p>An online auction is an auction that takes place via the internet, allowing users to sell or bid for products and services online.</p> 
                                             <div class="social-share-icons">
-                                                <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="Please find the latest online auction information for plate ${plateNumber + ' ' + plateLetterEn} with the highest bid amount ${formatToCurrency(bidAmount)}" data-hashtags="absher,auction" data-url="https://jameeronline.github.io/dashboard/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                <a href="javascript:void(0)" class="button" data-sharer="facebook" data-title="Please find the latest online auction information for plate ${plateNumber + ' ' + plateLetterEn}" data-hashtags="absher,auction" data-url="https://jameeronline.github.io/dashboard/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="Please find the latest online auction information for plate ${plateNumber + ' ' + plateLetterEn} with the highest bid amount ${formatToCurrency(bidAmount)}" data-url="https://jameeronline.github.io/dashboard/"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="button" data-sharer="facebook" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="button" data-sharer="snapchat" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -316,7 +349,7 @@ function renderPlates() {
                                     <span>${label_numberofbids}</span>
                                     <strong class="numberofbids">${bids}</strong>
                                 </div>
-                                ${ plateTypeID == 23 ? htmlMotorCyclePlate : htmlVehiclePlate }
+                                ${ plateType.name == "motorcycle" ? htmlMotorCyclePlate : htmlVehiclePlate }
                                 <div class="card__timer">
                                     <span class="card__auction--caption">${counterLabel}</span>
                                     <div class="auction-countdown" data-countdown="${auctionEndDate}" data-now="${auctionDataReloadedTime}" data-publish="${publishedDate}" data-start="${auctionStartDate}" data-status="${auctionStatus}"></div>
@@ -328,7 +361,7 @@ function renderPlates() {
                                 <div class="hide">
                                     <span class="sortAmount">${bidAmount}</span>
                                     <span class="sortIndex">${i}</span>
-                                    <span class="filterPlateType">${plateTypeID}</span>
+                                    <span class="filterPlateType">${plateType.name}</span>
                                 </div>
                             </div>
                         </div>
@@ -375,6 +408,11 @@ function renderPlates() {
               window.Sharer.init();
             });
 
+            setTimeout(function(){
+                $('html, body').animate({
+                    scrollTop: $(window.location.hash).offset().top
+                }, 500);
+            }, 100);
 
             //initSocialShare();
             //window.Sharer.init();
