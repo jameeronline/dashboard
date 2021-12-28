@@ -406,11 +406,13 @@ function renderPlates() {
               window.Sharer.init();
             });
 
-            setTimeout(function(){
-                $('html, body').animate({
-                    scrollTop: $(window.location.hash).offset().top
-                }, 500);
-            }, 100);
+            if(window.location.hash != ''){
+                setTimeout(function(){
+                    $('html, body').animate({
+                        scrollTop: $(window.location.hash).offset().top
+                    }, 500);
+                }, 100);
+            }
 
             //initSocialShare();
             //window.Sharer.init();
