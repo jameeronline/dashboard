@@ -78,6 +78,7 @@
                             <h2 class="services-grid-title">
                                 <!-- <img src="images/icons/header-icon.png" alt="">  -->
                                 <span>Absher - eAuction</span>
+                                <a href="javascript:void(0)" class="btn btn-default" id="shareButton">Share</a>
                             </h2>
                             <div class="form-horizontal form-filters" style="display: none;">
                                 <div class="form-group-flex" id="form-group-filter">
@@ -90,12 +91,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group-flex" id="form-group-sort">
-                                    <label for="sorting-byamount" class="control-label"><span>Sort By</span></label>                                            
+                                    <label for="sorting-byamount" class="control-label"><span>Sort By</span></label>
                                     <select class="form-control selectpicker" id="sorting-byamount">
                                         <option value="0" selected="">All</option>
                                         <option value="ASC_AMOUNT">Highest plate price</option>
                                         <option value="DESC_AMOUNT">Lowest plate price</option>
-                                    </select>                                            
+                                    </select>
                                 </div>
                             </div>
                             <div class="service-auction-counter hide">
@@ -144,6 +145,24 @@
     <script type="text/javascript" src="js/countdownTimer.min.js"></script>
     <script type="text/javascript" src="js/sharer.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
+    <script>
+        $(function(){
+            $('#shareButton').click(function(){
+                if (navigator.share) {
+                    navigator.share({
+                    title: 'WebShare API Demo',
+                    url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+                    }).then(() => {
+                    console.log('Thanks for sharing!');
+                    })
+                    .catch(console.error);
+                } else {
+                    // fallback
+                    alert('Share');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
