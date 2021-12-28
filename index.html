@@ -12,7 +12,7 @@
     <meta property="og:description" content="Online Plate Auction Service - og description" />
     <meta property="og:image" content="" />
     <meta name="twitter:card" content="twitter card">
-    <meta name="twitter:site" content="https://jameeronline.github.io/dashboard/">
+    <meta name="twitter:site" content="https://jameeronline.github.io/mazad/">
     <meta name="twitter:title" content="Online Plate Auction Service - twitter title">
     <meta name="twitter:description" content="Online Plate Auction Service - twitter description">
     <meta name="twitter:image" content="">
@@ -80,6 +80,25 @@
                                 <!-- <img src="images/icons/header-icon.png" alt="">  -->
                                 <span>مزاد اللوحات الإلكتروني </span>
                             </h2>
+                            <div class="form-horizontal form-filters" style="display: none;">
+                                <div class="form-group-flex" id="form-group-filter">
+                                    <label for="filter-bytypes" class="control-label"><span>Filter By</span></label>
+                                    <select class="form-control selectpicker" id="filter-types">
+                                        <option value="0" selected="">All</option>
+                                        <option value="FILTER_PRIVATE">Private Vehicles Plates</option>
+                                        <option value="FILTER_COMMERCIAL">Private Transport Plates</option>
+                                        <option value="FILTER_MOTOR">Motorbikes Plates</option>
+                                    </select>
+                                </div>
+                                <div class="form-group-flex" id="form-group-sort">
+                                    <label for="sorting-byamount" class="control-label"><span>Sort By</span></label>                                            
+                                    <select class="form-control selectpicker" id="sorting-byamount">
+                                        <option value="0" selected="">All</option>
+                                        <option value="ASC_AMOUNT">Highest plate price</option>
+                                        <option value="DESC_AMOUNT">Lowest plate price</option>
+                                    </select>                                            
+                                </div>
+                            </div>
                             <div class="service-auction-counter hide">
                                 <h3>الوقت المتبقي حتى نهاية المزاد </h3>
                                 <div id="auction-counter" class="simply-countdown"></div>
@@ -124,7 +143,7 @@
     <script type="text/javascript" src="js/list.min.js"></script>
     <script type="text/javascript" src="js/simplyCountdown.min.js"></script>
     <script type="text/javascript" src="js/countdownTimer.min.js"></script>
-    <script type="text/javascript" src="js/sharer.min.js"></script>
+    <script type="text/javascript" src="js/sharer.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 
