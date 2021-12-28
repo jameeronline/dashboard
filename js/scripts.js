@@ -292,7 +292,7 @@ function renderPlates() {
                 let plateType = palateTypes[palateTypes.map(function (item) { return item.id; }).indexOf(plateTypeID)];
 
                 let socialMediaProps = {
-                    url: "https://jameeronline.github.io/mazad/",
+                    url: "https://jameeronline.github.io/dashboard/",
                     hashTags: "absher,auction",
                     description: "Please find the latest online auction information for plate " + plateNumber + " " + plateLetterEn + " with the highest bid amount " + formatToCurrency(bidAmount),
                     plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
