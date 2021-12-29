@@ -78,7 +78,6 @@
                             <h2 class="services-grid-title">
                                 <!-- <img src="images/icons/header-icon.png" alt="">  -->
                                 <span>Absher - eAuction</span>
-                                <a href="javascript:void(0)" class="btn btn-default" id="shareButton">Share</a>
                             </h2>
                             <div class="form-horizontal form-filters" style="display: none;">
                                 <div class="form-group-flex" id="form-group-filter">
@@ -145,25 +144,6 @@
     <script type="text/javascript" src="js/countdownTimer.min.js"></script>
     <script type="text/javascript" src="js/sharer.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
-    <script>
-        $(function(){
-            $('#shareButton').click(function(){
-                if (navigator.share) {
-                    navigator.share({
-                        title: "Absher - Online Plate Auction Service",
-                        text: "Please find the latest online auction information for plate 1111 ABC with the highest bid amount SAR 11,500.00",
-                        url: "https://jameeronline.github.io/dashboard/"
-                    }).then(() => {
-                        console.log('Thanks for sharing!');
-                    })
-                    .catch(console.error);
-                } else {
-                    // fallback
-                    alert('Share');
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
