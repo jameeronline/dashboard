@@ -158,6 +158,37 @@ function initSocialShare() {
     });
 }
 
+
+function getFileObj(){
+    var GetFileBlobUsingURL = function (url, convertBlob) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url);
+            xhr.responseType = "blob";
+            xhr.addEventListener('load', function() {
+                convertBlob(xhr.response);
+            });
+            xhr.send();
+    };
+
+    var blobToFile = function (blob, name) {
+            blob.lastModifiedDate = new Date();
+            blob.name = name;
+            return blob;
+    };
+
+    var GetFileObjectFromURL = function(filePathOrUrl, convertBlob) {
+        GetFileBlobUsingURL(filePathOrUrl, function (blob) {
+            convertBlob(blobToFile(blob, 'testFile.jpg'));
+        });
+    };
+
+    var FileURL="https://jameeronline.github.io/dashboard/images/social-image-dummy.png";
+
+    GetFileObjectFromURL(FileURL, function (fileObject) {
+        return fileObject;
+    });
+}
+
 function checkUpdates(plateNum, plateLetter, bidValue, bids, plateID, domBid, domBidAmount) {
     var updated = false;
 
@@ -420,7 +451,8 @@ function renderPlates() {
                 navigator.share({
                     title: "Absher - Online Plate Auction Service",
                     text: description,
-                    url: url
+                    url: url,
+                    files: [getFileObj()]
                 }).then(() => {
                     console.log('Thanks for sharing!');
                 })
