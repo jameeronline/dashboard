@@ -288,7 +288,6 @@ function renderPlates() {
                 let publishedDate = field.publishedDate;
                 let auctionStatus = field.auctionStatusId;
                 let counterLabel = auctionStatus == 3 ? label_auctionStart : label_auctionEnd;
-                //let prodPlateType = plateTypeID - 20;
                 let plateType = palateTypes[palateTypes.map(function (item) { return item.id; }).indexOf(plateTypeID)];
 
                 let socialMediaProps = {
@@ -330,7 +329,10 @@ function renderPlates() {
                             <div class="ribbon ${palateCategories[auctionCategory-1]}"><span>${label_categories[auctionCategory-1]}</span></div>
                             <div class="card__platenumber">
                                 <div class="card__platenumber--info">
-                                    <a class="social-share" href="javascript:void(0)" tabindex="0" role="button" data-trigger="focus" data-toggle="popover" data-popover-content="#social-share-icons-${i}">
+                                    <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-trigger="focus" data-toggle="popover" data-popover-content="#social-share-icons-${i}">
+                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                    <a class="social-share social-share-mobile hide" href="javascript:void(0)" tabindex="0" role="button" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
                                         <i class="fa fa-share-alt" aria-hidden="true"></i>
                                     </a>
                                     <div class="social-share-icons-wrapper hide" id="social-share-icons-${i}">
@@ -371,17 +373,14 @@ function renderPlates() {
 
             // Update DOM
             $('#grid-dashboard').html(output);
+
             //Initialzie Coundown
             InitializeCountdown();
+
             //Init List.JS
             initListJS();
 
-            // $("#social-share").jsSocials({
-            //     showLabel: false,
-            //     showCount: false,
-            //     shares: ["email", "twitter", "facebook", "whatsapp"]
-            // });
-
+            //Social share popup position based on device width
             if(window.innerWidth < 768){
                 var placement = "bottom";
             }else{
@@ -406,6 +405,29 @@ function renderPlates() {
               window.Sharer.init();
             });
 
+            //Enable Social Share based on compatability
+            if (navigator.share && window.innerWidth < 768) {
+                $('.social-share-mobile').removeClass('hide');
+                $('.social-share-desktop').addClass('hide');
+            }
+
+            //Init social share - native
+            $('.social-share-mobile').click(function(){
+                var title = $(this).data("title");
+                var description = $(this).data("title");
+                var url = $(this).data("url");
+
+                navigator.share({
+                    title: "Absher - Online Plate Auction Service",
+                    text: description,
+                    url: url
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+            });
+
+            //Move to specific carplate if we have hash tag in url
             if(window.location.hash != ''){
                 setTimeout(function(){
                     $('html, body').animate({
@@ -413,9 +435,6 @@ function renderPlates() {
                     }, 500);
                 }, 100);
             }
-
-            //initSocialShare();
-            //window.Sharer.init();
 
             //Store Value
             localStorage.setItem('plates', JSON.stringify(plates));
