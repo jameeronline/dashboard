@@ -451,8 +451,7 @@ function renderPlates() {
                 navigator.share({
                     title: "Absher - Online Plate Auction Service",
                     text: description,
-                    url: url,
-                    files: [getFileObj()]
+                    url: url
                 }).then(() => {
                     console.log('Thanks for sharing!');
                 })
