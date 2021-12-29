@@ -293,7 +293,7 @@ function renderPlates() {
                 let socialMediaProps = {
                     url: "https://jameeronline.github.io/dashboard/",
                     hashTags: "absher,auction",
-                    description: "Please find the latest bid information for the plate : " + plateNumber + " " + plateLetterEn + ", Highest price : " + formatToCurrency(bidAmount) + "\r\n",
+                    description: "Please find the latest bid information for the plate : " + plateNumber + " " + plateLetterEn + label_priceLabel +", Highest price : " + formatToCurrency(bidAmount) + "\r\n",
                     plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
                 }
 
