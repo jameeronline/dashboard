@@ -157,7 +157,12 @@ img,embed,object,video {
     height: 100%;
     transition: all .3s cubic-bezier(.25,.8,.25,1);
     display: block;
+    cursor: pointer;
     position: relative
+}
+
+.services-grid-item:hover{
+    box-shadow: 0 14px 28px rgb(0 0 0 / 12%), 0 10px 10px rgb(0 0 0 / 8%);
 }
 
 .services-grid-item h4 {
@@ -1061,7 +1066,7 @@ a.round-button {
     position: relative;
 }
 
-.social-share{    
+.social-share{
     position: absolute;
     width: 44px;
     height: 44px;
@@ -1075,11 +1080,11 @@ a.round-button {
     outline: none !important;
 }
 
-.ltr .social-share{   
+.ltr .social-share{
     left: 0;
 }
 
-.rtl .social-share{   
+.rtl .social-share{
     right: 0;
 }
 
@@ -1088,11 +1093,11 @@ a.round-button {
 .social-share:active,
 .social-share:focus{
     color: #333;
-    text-decoration: none;    
+    text-decoration: none;
 }
 
 .social-share > i.fa{
-    font-size: 20px !important;       
+    font-size: 20px !important;
 }
 
 .social-share:hover,
@@ -1139,7 +1144,7 @@ a.round-button {
 }
 
 .social-share-icons a > i.fa{
-    font-size: 20px !important;    
+    font-size: 20px !important;
 }
 
 .social-share-icons a[data-sharer="twitter"]{
@@ -1173,8 +1178,8 @@ a.round-button {
         border-radius: 0;
         border: none;
         box-shadow: 0 0px 12px rgb(0 0 0 / 40%);
-        height: 25%;    
-        margin: 0 !important;    
+        height: 25%;
+        margin: 0 !important;
     }
 
     .popover.fade.in{
@@ -1190,7 +1195,7 @@ a.round-button {
         display: none;
     }
 
-    .services-grid-item .popover .popover-title{        
+    .services-grid-item .popover .popover-title{
         border-radius: 0;
     }
 
@@ -1198,7 +1203,7 @@ a.round-button {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex: 1;        
+        flex: 1;
     }
 
 
@@ -1213,5 +1218,5 @@ a.round-button {
 
     .popover.fade.in {
         height:25%;
-    }    
+    }
 }*/
