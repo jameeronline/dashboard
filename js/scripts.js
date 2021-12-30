@@ -13,6 +13,7 @@ if ($('body').hasClass('rtl')) {
     var label_priceLabel = "ريال ";
     var label_auctionStart = "الوقت المتبقي حتى بداية المزاد ";
     var label_auctionEnd = "الوقت المتبقي حتى نهاية المزاد";
+    var url_mazad = "https://www.absher.sa/wps/myportal/individuals/Home/myservices/eservices/traffic/mazadservice/";
 } else {
     var label_numberofbids = "Number of Bids";
     var label_highestBidAmount = "Highest Bid Price";
@@ -20,6 +21,7 @@ if ($('body').hasClass('rtl')) {
     var label_priceLabel = "SAR";
     var label_auctionStart = "Auction Start time";
     var label_auctionEnd = "Auction End time";
+    var url_mazad = "https://www.absher.sa/wps/myportal/individuals/Home/myservices/eservices/traffic/mazadservice/";
 }
 
 //Convert Digits to Arabic numbers
@@ -412,6 +414,11 @@ function renderPlates() {
 
             //Init List.JS
             initListJS();
+
+            //init card onclick
+            $('.services-grid-item').click(function(){
+                $('.link-to-mazad').click();
+            })
 
             //Social share popup position based on device width
             if(window.innerWidth < 768){
