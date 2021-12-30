@@ -371,8 +371,8 @@ function renderPlates() {
 
             //init card onclick
             $('.services-grid-item').click(function(){
-                $('.link-to-mazad').click();
-            })
+                $('.link-to-mazad')[0].click();
+            });
 
             //Social share popup position based on device width
             if(window.innerWidth < 768){
