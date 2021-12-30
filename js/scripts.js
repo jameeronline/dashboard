@@ -3,7 +3,6 @@ localStorage.removeItem('plates');
 
 //Global Variables
 var listGroup;
-var socialShareImage;
 
 // Properties
 if ($('body').hasClass('rtl')) {
@@ -147,51 +146,6 @@ function initListJS() {
         }
     });
 }
-
-function initSocialShare() {
-    $('.share-button').share({
-        url: 'https://mazad.absher.sa/', //  the url you want to share.default: window.location.href
-        title: 'Online Plate Auction Service', //
-        text: 'Online Plate Auction Service - Description.', // text to be tweeted alongside your link, default: your page's meta description
-        image: 'https://mazad.absher.sa/', // image to be shared (facebook-specific)
-        app_id: 'YOUR FACEBOOK API KEY', // facebook app id for tracking shares. if provided, will use the facebook API
-        background: 'rgba(255,255,255,.5)', // background color of the button, default: #e1e1e1
-        color: '#3B2B45', // text color of the button
-        button_text: 'share' // change the text of the button, default: Share
-    });
-}
-
-
-var GetFileBlobUsingURL = function (url, convertBlob) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.responseType = "blob";
-    xhr.addEventListener('load', function() {
-        convertBlob(xhr.response);
-    });
-    xhr.send();
-};
-
-var blobToFile = function (blob, name) {
-    blob.lastModifiedDate = new Date();
-    blob.name = name;
-    return blob;
-};
-
-var GetFileObjectFromURL = function(filePathOrUrl, convertBlob) {
-    GetFileBlobUsingURL(filePathOrUrl, function (blob) {
-        convertBlob(blobToFile(blob, 'social.png'));
-    });
-};
-
-function getFileObj(){
-    var FileURL="https://jameeronline.github.io/dashboard/images/social-image-dummy.png";
-    GetFileObjectFromURL(FileURL, function (fileObject) {
-        socialShareImage = fileObject;
-    });
-}
-
-getFileObj();
 
 function checkUpdates(plateNum, plateLetter, bidValue, bids, plateID, domBid, domBidAmount) {
     var updated = false;
