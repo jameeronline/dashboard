@@ -369,9 +369,9 @@ function renderPlates() {
             initListJS();
 
             //init card onclick
-            $('.services-grid-item').click(function(){
-                $('.link-to-mazad')[0].click();
-            });
+            // $('.services-grid-item').click(function(){
+            //     $('.link-to-mazad')[0].click();
+            // });
 
             //Social share popup position based on device width
             if(window.innerWidth < 768){
@@ -395,7 +395,7 @@ function renderPlates() {
             });
 
             $("[data-toggle=popover]").on('shown.bs.popover', function () {
-              window.Sharer.init();
+                window.Sharer.init();
             });
 
             //Enable Social Share based on compatability
@@ -405,9 +405,9 @@ function renderPlates() {
             }
 
             //Init social share - desktop
-            $('.social-share-desktop').click(function(event){
-                event.stopPropagation();
-            });
+            // $('.social-share-desktop').click(function(event){
+            //     event.stopPropagation();
+            // });
 
             //Init social share - native
             $('.social-share-mobile').click(function(){
