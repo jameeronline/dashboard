@@ -334,7 +334,6 @@ function renderPlates() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="share-button"></div>
                                     <span>${label_numberofbids}</span>
                                     <strong class="numberofbids">${bids}</strong>
                                 </div>
@@ -404,6 +403,11 @@ function renderPlates() {
                 $('.social-share-mobile').removeClass('hide');
                 $('.social-share-desktop').addClass('hide');
             }
+
+            //Init social share - desktop
+            $('.social-share-desktop').click(function(event){
+                event.stopPropagation();
+            });
 
             //Init social share - native
             $('.social-share-mobile').click(function(){
