@@ -332,10 +332,12 @@ function renderPlates() {
                             <div class="card__platenumber">
                                 <div class="card__platenumber--info">
                                     <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-trigger="focus" data-toggle="popover" data-popover-content="#social-share-icons-${i}">
-                                        <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" />
+                                        <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
+                                        <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
                                     </a>
                                     <a class="social-share social-share-mobile hide" href="javascript:void(0)" tabindex="0" role="button" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
-                                        <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" />
+                                        <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
+                                        <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
                                     </a>
                                     <div class="social-share-icons-wrapper hide" id="social-share-icons-${i}">
                                         <div class="popover-heading">Social Share Options</div>

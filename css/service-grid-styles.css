@@ -1108,13 +1108,29 @@ a.round-button {
     font-size: 20px !important;
 }
 
+.social-share > img{
+    width: 22px;
+}
+
 .social-share:hover,
 .social-share[aria-describedby]{
     background-color: #eee;
 }
 
-.social-share > img{
-    width: 22px;
+.social-share .share-opened{
+    display: none;
+}
+
+.social-share[aria-describedby] .share-opened{
+    display: inline-block;
+}
+
+.social-share[aria-describedby] .share-closed{
+    display: none;
+}
+
+.social-share[aria-describedby] .share-opened{
+    display: inline-block;
 }
 
 
