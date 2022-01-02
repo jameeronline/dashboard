@@ -319,7 +319,7 @@ function renderPlates() {
 
                 var html =
                     `<li class="col-md-4" id="${socialMediaProps.plateID}">
-                        <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-popover-content="#social-share-icons-${i}">
+                        <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-trigger="manual" data-toggle="popover" data-trigger="focus" data-popover-content="#social-share-icons-${i}">
                             <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
                             <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
                         </a>
@@ -375,7 +375,7 @@ function renderPlates() {
             //Init List.JS
             initListJS();
 
-            //init card onclick
+            //init click to mazad
             $('.services-grid-item').click(function(){
                 $(this).find('.link-to-mazad')[0].click();
             });
@@ -407,8 +407,20 @@ function renderPlates() {
                 }
             });
 
+            //init share for desktop
             $("[data-toggle=popover]").on('shown.bs.popover', function () {
                 window.Sharer.init();
+            });
+
+            //Popover manual event
+            $("[data-toggle=popover]").click(function(){
+                $("[data-toggle=popover]").not($(this)).popover('hide');
+                $(this).popover('toggle');
+            });
+
+            //Popover hide
+            $(document).on('click', '.social-share-icons a', function(){
+                $("[data-toggle=popover]").popover('hide');
             });
 
             //Init social share - native
@@ -418,7 +430,7 @@ function renderPlates() {
                 var url = $(this).data("url");
 
                 navigator.share({
-                    title: "Absher - Online Plate Auction Service",
+                    title: "Online Plate Auction Service - Absher",
                     text: description,
                     url: url
                 }).then(() => {
