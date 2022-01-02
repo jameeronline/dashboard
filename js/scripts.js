@@ -329,7 +329,7 @@ function renderPlates() {
                             <div class="ribbon ${palateCategories[auctionCategory-1]}"><span>${label_categories[auctionCategory-1]}</span></div>
                             <div class="card__platenumber">
                                 <div class="card__platenumber--info">
-                                    <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-trigger="focus" data-toggle="popover" data-popover-content="#social-share-icons-${i}">
+                                    <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-toggle="popover" data-popover-content="#social-share-icons-${i}">
                                         <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
                                         <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
                                     </a>
@@ -341,8 +341,8 @@ function renderPlates() {
                                         <div class="popover-heading">Social Share Options</div>
                                         <div class="popover-body">
                                             <div class="social-share-icons">
-                                                <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/twitter.svg" alt="twitter" aria-hidden="true" width="20" /></a>
+                                                <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/whatsapp.svg" alt="twitter" aria-hidden="true" width="20" /></a>
                                             </div>
                                         </div>
                                     </div>
