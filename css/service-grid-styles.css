@@ -1074,6 +1074,10 @@ a.round-button {
     position: relative;
 }
 
+.services-grid-row .col-md-4{
+    position: relative
+}
+
 .social-share{
     position: absolute;
     width: 44px;
@@ -1086,14 +1090,16 @@ a.round-button {
     color: #333;
     text-decoration: none;
     outline: none !important;
+    z-index: 1;
+    top: 25px;
 }
 
 .ltr .social-share{
-    left: 0;
+    left: 40px;
 }
 
 .rtl .social-share{
-    right: 0;
+    right: 40px;
 }
 
 .social-share:visited,

@@ -271,30 +271,24 @@ function renderPlates() {
                 let plateLetterEn = field.plateLetterEn;
                 let plateTypeID = field.plateTypeID;
                 let auctionCategory = field.auctionCategory;
-                let auctionStartDate = field.auctionStartDate;
                 let auctionEndDate = field.auctionEndDate;
-                let auctionDataReloadedTime = field.auctionDataReloadedTime;
                 let publishedDate = field.publishedDate;
                 let auctionStatus = field.auctionStatusId;
+                let auctionStartDate = field.auctionStartDate;
+                let auctionDataReloadedTime = field.auctionDataReloadedTime;
                 let counterLabel = auctionStatus == 3 ? label_auctionStart : label_auctionEnd;
                 let plateType = palateTypes[palateTypes.map(function (item) { return item.id; }).indexOf(plateTypeID)];
-                let socialMediaProps = {};
+                let socialMediaProps = {
+                    description: '',
+                    hashTags: "absher,auction",
+                    url: "https://jameeronline.github.io/dashboard/",
+                    plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
+                };
 
-                // Social Share Labels
                 if ($('body').hasClass('rtl')) {
-                    socialMediaProps = {
-                        url: "https://jameeronline.github.io/dashboard/",
-                        hashTags: "absher,auction",
-                        description: "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + "\r\n" + "Plate Number: " + plateNumber.toIndiaDigits() + " " + plateLetterAr + "\r\n" + "Highest Bid Price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
-                        plateID: plateNumber() + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
-                    };
+                    socialMediaProps.description = "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + "\r\n" + "Plate Number: " + plateNumber.toIndiaDigits() + " " + plateLetterAr + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
                 }else{
-                    socialMediaProps = {
-                        url: "https://jameeronline.github.io/dashboard/",
-                        hashTags: "absher,auction",
-                        description: "I liked this plate on Absher E-Auction and would like to share it with you." + "\r\n" + "Plate Number: " + plateNumber + " " + reversePlateLetter(plateLetterEn).replaceAll(' ', '') + "\r\n" + "Highest Bid Price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
-                        plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
-                    };
+                    socialMediaProps.description = "I liked this plate on Absher E-Auction and would like to share it with you." + "\r\n" + "Plate Number: " + plateNumber + " " + reversePlateLetter(plateLetterEn).replaceAll(' ', '') + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
                 }
 
                 var htmlMotorCyclePlate =
@@ -325,27 +319,28 @@ function renderPlates() {
 
                 var html =
                     `<li class="col-md-4" id="${socialMediaProps.plateID}">
+                        <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-popover-content="#social-share-icons-${i}">
+                            <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
+                            <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
+                        </a>
+                        <a class="social-share social-share-mobile hide" href="javascript:void(0)" tabindex="0" role="button" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
+                            <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
+                            <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
+                        </a>
+                        <div class="social-share-icons-wrapper hide" id="social-share-icons-${i}">
+                            <div class="popover-heading">Social Share Options</div>
+                            <div class="popover-body">
+                                <div class="social-share-icons">
+                                    <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/twitter.svg" alt="twitter" aria-hidden="true" width="20" /></a>
+                                    <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/whatsapp.svg" alt="twitter" aria-hidden="true" width="20" /></a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="services-grid-item plate_${palateCategories[auctionCategory-1]} platetype_${plateType.name}" data-platetype="${plateTypeID}" data-index="${i}">
+                            <a href="${label_url_mazad}" class="link-to-mazad hide">Link to Mazad</a>
                             <div class="ribbon ${palateCategories[auctionCategory-1]}"><span>${label_categories[auctionCategory-1]}</span></div>
                             <div class="card__platenumber">
                                 <div class="card__platenumber--info">
-                                    <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-popover-content="#social-share-icons-${i}">
-                                        <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
-                                        <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
-                                    </a>
-                                    <a class="social-share social-share-mobile hide" href="javascript:void(0)" tabindex="0" role="button" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
-                                        <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
-                                        <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
-                                    </a>
-                                    <div class="social-share-icons-wrapper hide" id="social-share-icons-${i}">
-                                        <div class="popover-heading">Social Share Options</div>
-                                        <div class="popover-body">
-                                            <div class="social-share-icons">
-                                                <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/twitter.svg" alt="twitter" aria-hidden="true" width="20" /></a>
-                                                <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/whatsapp.svg" alt="twitter" aria-hidden="true" width="20" /></a>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <span>${label_numberofbids}</span>
                                     <strong class="numberofbids">${bids}</strong>
                                 </div>
@@ -381,9 +376,9 @@ function renderPlates() {
             initListJS();
 
             //init card onclick
-            // $('.services-grid-item').click(function(){
-            //     $('.link-to-mazad')[0].click();
-            // });
+            $('.services-grid-item').click(function(){
+                $(this).find('.link-to-mazad')[0].click();
+            });
 
             //Enable Social Share based on compatability
             if (navigator.share && window.innerWidth < 768) {
@@ -415,16 +410,6 @@ function renderPlates() {
             $("[data-toggle=popover]").on('shown.bs.popover', function () {
                 window.Sharer.init();
             });
-
-            //Toggle Popover
-            // $(".social-share-desktop[aria-describedby]").click(function(){
-            //     $("[data-toggle=popover]").popover('hide');
-            // });
-
-            //Init social share - desktop
-            // $('.social-share-desktop').click(function(event){
-            //     event.stopPropagation();
-            // });
 
             //Init social share - native
             $('.social-share-mobile').click(function(){
