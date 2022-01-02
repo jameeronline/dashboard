@@ -278,22 +278,25 @@ function renderPlates() {
                 let auctionStatus = field.auctionStatusId;
                 let counterLabel = auctionStatus == 3 ? label_auctionStart : label_auctionEnd;
                 let plateType = palateTypes[palateTypes.map(function (item) { return item.id; }).indexOf(plateTypeID)];
+                let socialMediaProps = {};
 
                 // Social Share Labels
                 if ($('body').hasClass('rtl')) {
-                    let socialMediaProps = {
+                    socialMediaProps = {
                         url: "https://jameeronline.github.io/dashboard/",
                         hashTags: "absher,auction",
                         description: "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + plateNumber.toIndiaDigits() + " " + plateLetterAr +", Highest price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
                         plateID: plateNumber.toIndiaDigits() + reversePlateLetter(plateLetterAr).replaceAll(' ', '')
-                    }
+                    };
+                    console.log(socialMediaProps);
                 }else{
-                    let socialMediaProps = {
+                    socialMediaProps = {
                         url: "https://jameeronline.github.io/dashboard/",
                         hashTags: "absher,auction",
                         description: "I liked this plate on Absher E-Auction and would like to share it with you " + plateNumber + " " + plateLetterEn +", Highest price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
                         plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
-                    }
+                    };
+                    console.log(socialMediaProps);
                 }
 
                 var htmlMotorCyclePlate =
