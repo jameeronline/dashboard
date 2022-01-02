@@ -8,6 +8,7 @@ var palateCategories = ["diamond", "gold", "silver", "bronze"];
 // Label Properties
 if ($('body').hasClass('rtl')) {
     var label_numberofbids = "عدد المزايدات";
+    var label_plateNumber = "رقم اللوحة";
     var label_highestBidAmount = "مبلغ أعلى مزايدة";
     var label_categories = ["الماسي", "ذهبي", "فضي", "برونزي "];
     var label_priceLabel = "ريال ";
@@ -17,6 +18,7 @@ if ($('body').hasClass('rtl')) {
     var label_socialshare_description = "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك";
 } else {
     var label_numberofbids = "Number of Bids";
+    var label_plateNumber = "Plate Number";
     var label_highestBidAmount = "Highest Bid Price";
     var label_categories = ["Diamond", "Gold", "Silver", "Bronze"];
     var label_priceLabel = "SAR";
@@ -286,9 +288,9 @@ function renderPlates() {
                 };
 
                 if ($('body').hasClass('rtl')) {
-                    socialMediaProps.description = "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + "\r\n" + "Plate Number: " + plateNumber.toIndiaDigits() + " " + plateLetterAr + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
+                    socialMediaProps.description = "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + "\r\n" + label_plateNumber + ": " + plateNumber.toIndiaDigits() + " " + plateLetterAr + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
                 }else{
-                    socialMediaProps.description = "I liked this plate on Absher E-Auction and would like to share it with you." + "\r\n" + "Plate Number: " + plateNumber + " " + reversePlateLetter(plateLetterEn).replaceAll(' ', '') + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
+                    socialMediaProps.description = "I liked this plate on Absher E-Auction and would like to share it with you." + "\r\n" + label_plateNumber + ": " + plateNumber + " " + reversePlateLetter(plateLetterEn).replaceAll(' ', '') + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
                 }
 
                 var htmlMotorCyclePlate =
