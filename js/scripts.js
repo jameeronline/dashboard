@@ -340,7 +340,6 @@ function renderPlates() {
                                             <div class="social-share-icons">
                                                 <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-hashtags="${socialMediaProps.hashTags}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                                 <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-                                                <a href="javascript:void(0)" class="button" data-sharer="snapchat" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
