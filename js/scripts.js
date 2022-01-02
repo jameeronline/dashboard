@@ -3,8 +3,9 @@ localStorage.removeItem('plates');
 
 //Global Variables
 var listGroup;
+var palateCategories = ["diamond", "gold", "silver", "bronze"];
 
-// Properties
+// Label Properties
 if ($('body').hasClass('rtl')) {
     var label_numberofbids = "عدد المزايدات";
     var label_highestBidAmount = "مبلغ أعلى مزايدة";
@@ -12,7 +13,8 @@ if ($('body').hasClass('rtl')) {
     var label_priceLabel = "ريال ";
     var label_auctionStart = "الوقت المتبقي حتى بداية المزاد ";
     var label_auctionEnd = "الوقت المتبقي حتى نهاية المزاد";
-    var url_mazad = "https://www.absher.sa/wps/myportal/individuals/Home/myservices/eservices/traffic/mazadservice/";
+    var label_url_mazad = "https://www.absher.sa/wps/myportal/individuals/Home/myservices/eservices/traffic/mazadservice/";
+    var label_socialshare_description = "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك";
 } else {
     var label_numberofbids = "Number of Bids";
     var label_highestBidAmount = "Highest Bid Price";
@@ -20,7 +22,8 @@ if ($('body').hasClass('rtl')) {
     var label_priceLabel = "SAR";
     var label_auctionStart = "Auction Start time";
     var label_auctionEnd = "Auction End time";
-    var url_mazad = "https://www.absher.sa/wps/myportal/individuals/Home/myservices/eservices/traffic/mazadservice/";
+    var label_url_mazad = "https://www.absher.sa/wps/myportal/individuals/Home/myservices/eservices/traffic/mazadservice/";
+    var label_socialshare_description = "I liked this plate on Absher E-Auction and would like to share it with you";
 }
 
 //Convert Digits to Arabic numbers
@@ -167,16 +170,13 @@ function checkUpdates(plateNum, plateLetter, bidValue, bids, plateID, domBid, do
     return false;
 }
 
-
-// Read JSON
+// Dashboard Updates
 function dashboardUpdate() {
     $.getJSON("/dashboard/js/auctionData.json?v=" + Math.random(), function(result) {
         //$.getJSON("../auctionData.json?v="+Math.random(), function(result) {
         //Get Plates and Reset Output
         var plates = result;
         var output = '';
-        var palateCategories = ["diamond", "gold", "silver", "bronze"];
-        var palateTypes = ["private", "transport", "motorcycle"];
 
         if (localStorage.getItem('plates') != undefined || localStorage.getItem('plates') != null) {
             if (JSON.parse(localStorage.getItem('plates')).length != plates.length) {
@@ -185,7 +185,7 @@ function dashboardUpdate() {
                 if (plates.length != 0) {
                     $('.form-filters').attr('style', '');
                     $('.show-noresult').addClass('hide');
-                    $('.show-json-error').addClass('hide');
+                    //$('.show-json-error').addClass('hide');
                     $('.services-grid-item').removeClass('animate__bg');
 
                     //Loop each plates to verify the updates
@@ -219,18 +219,18 @@ function dashboardUpdate() {
             }
         }
     }).fail(function() {
-        $('.show-json-error').removeClass('hide');
+        //$('.show-json-error').removeClass('hide');
+        console.log('JSON error');
     });
 }
 
+//Initial Render - dashboard
 function renderPlates() {
     $.getJSON("/dashboard/js/auctionData.json?v=" + Math.random(), function(result) {
         //$.getJSON("../auctionData.json?v="+Math.random(), function(result) {
         //Get Plates and Reset Output
         var plates = result;
         var output = '';
-        var palateCategories = ["diamond", "gold", "silver", "bronze"];
-        //var palateTypes = ["private", "transport", "motorcycle"];
 
         // Enable for Development
         // var palateTypes = [{
@@ -259,7 +259,7 @@ function renderPlates() {
         if (plates.length != 0) {
             $('.form-filters').attr('style', '');
             $('.show-noresult').addClass('hide');
-            $('.show-json-error').addClass('hide');
+            //$('.show-json-error').addClass('hide');
             $('.services-grid-item').removeClass('animate__bg');
 
             //Loop to read each plates
@@ -279,11 +279,21 @@ function renderPlates() {
                 let counterLabel = auctionStatus == 3 ? label_auctionStart : label_auctionEnd;
                 let plateType = palateTypes[palateTypes.map(function (item) { return item.id; }).indexOf(plateTypeID)];
 
-                let socialMediaProps = {
-                    url: "https://jameeronline.github.io/dashboard/",
-                    hashTags: "absher,auction",
-                    description: "Please find the latest bid information for the plate: " + plateNumber + " " + plateLetterEn +", Highest price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
-                    plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
+                // Social Share Labels
+                if ($('body').hasClass('rtl')) {
+                    let socialMediaProps = {
+                        url: "https://jameeronline.github.io/dashboard/",
+                        hashTags: "absher,auction",
+                        description: "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + plateNumber.toIndiaDigits() + " " + plateLetterAr +", Highest price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
+                        plateID: plateNumber.toIndiaDigits() + reversePlateLetter(plateLetterAr).replaceAll(' ', '')
+                    }
+                }else{
+                    let socialMediaProps = {
+                        url: "https://jameeronline.github.io/dashboard/",
+                        hashTags: "absher,auction",
+                        description: "I liked this plate on Absher E-Auction and would like to share it with you " + plateNumber + " " + plateLetterEn +", Highest price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
+                        plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
+                    }
                 }
 
                 var htmlMotorCyclePlate =
@@ -373,6 +383,12 @@ function renderPlates() {
             //     $('.link-to-mazad')[0].click();
             // });
 
+            //Enable Social Share based on compatability
+            if (navigator.share && window.innerWidth < 768) {
+                $('.social-share-mobile').removeClass('hide');
+                $('.social-share-desktop').addClass('hide');
+            }
+
             //Social share popup position based on device width
             if(window.innerWidth < 768){
                 var placement = "bottom";
@@ -397,12 +413,6 @@ function renderPlates() {
             $("[data-toggle=popover]").on('shown.bs.popover', function () {
                 window.Sharer.init();
             });
-
-            //Enable Social Share based on compatability
-            if (navigator.share && window.innerWidth < 768) {
-                $('.social-share-mobile').removeClass('hide');
-                $('.social-share-desktop').addClass('hide');
-            }
 
             //Init social share - desktop
             // $('.social-share-desktop').click(function(event){
@@ -441,7 +451,8 @@ function renderPlates() {
             $('.show-noresult').removeClass('hide');
         }
     }).fail(function() {
-        $('.show-json-error').removeClass('hide');
+        //$('.show-json-error').removeClass('hide');
+        console.log('JSON error');
     });
 }
 
