@@ -285,18 +285,16 @@ function renderPlates() {
                     socialMediaProps = {
                         url: "https://jameeronline.github.io/dashboard/",
                         hashTags: "absher,auction",
-                        description: "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + plateNumber.toIndiaDigits() + " " + plateLetterAr +", Highest price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
+                        description: "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + "\r\n" + "Plate Number: " + plateNumber.toIndiaDigits() + " " + plateLetterAr + "\r\n" + "Highest Bid Price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
                         plateID: plateNumber.toIndiaDigits() + reversePlateLetter(plateLetterAr).replaceAll(' ', '')
                     };
-                    console.log(socialMediaProps);
                 }else{
                     socialMediaProps = {
                         url: "https://jameeronline.github.io/dashboard/",
                         hashTags: "absher,auction",
-                        description: "I liked this plate on Absher E-Auction and would like to share it with you " + plateNumber + " " + plateLetterEn +", Highest price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
+                        description: "I liked this plate on Absher E-Auction and would like to share it with you." + "\r\n" + "Plate Number: " + plateNumber + " " + reversePlateLetter(plateLetterEn).replaceAll(' ', '') + "\r\n" + "Highest Bid Price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
                         plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
                     };
-                    console.log(socialMediaProps);
                 }
 
                 var htmlMotorCyclePlate =
