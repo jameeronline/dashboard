@@ -286,7 +286,7 @@ function renderPlates() {
                         url: "https://jameeronline.github.io/dashboard/",
                         hashTags: "absher,auction",
                         description: "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + "\r\n" + "Plate Number: " + plateNumber.toIndiaDigits() + " " + plateLetterAr + "\r\n" + "Highest Bid Price: " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n",
-                        plateID: plateNumber.toIndiaDigits() + reversePlateLetter(plateLetterAr).replaceAll(' ', '')
+                        plateID: plateNumber.toIndiaDigits() + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
                     };
                 }else{
                     socialMediaProps = {
