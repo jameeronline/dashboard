@@ -321,7 +321,22 @@ function renderPlates() {
 
                 var html =
                     `<li class="col-md-4" id="${socialMediaProps.plateID}">
-                        <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-trigger="manual" data-toggle="popover" data-trigger="focus" data-popover-content="#social-share-icons-${i}">
+                        <div class="fab-wrapper social-share-desktop">
+                            <input id="fabCheckbox-${i}" type="checkbox" class="fab-checkbox" />
+                            <label class="fab" for="fabCheckbox-${i}">
+                                <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="18" class="share-closed" />
+                                <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
+                            </label>
+                            <div class="fab-wheel social-share-icons">
+                                <a class="fab-action fab-action-1" href="javascript:void(0)" data-sharer="twitter" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
+                                    <img src="images/twitter.svg" alt="twitter" aria-hidden="true" />
+                                </a>
+                                <a class="fab-action fab-action-2" href="javascript:void(0)" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
+                                    <img src="images/whatsapp.svg" alt="twitter" aria-hidden="true" />
+                                </a>
+                            </div>
+                        </div>
+                        <a class="social-share social-share-desktop hide" href="javascript:void(0)" tabindex="0" role="button" data-trigger="manual" data-toggle="popover" data-trigger="focus" data-popover-content="#social-share-icons-${i}">
                             <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
                             <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
                         </a>
@@ -414,10 +429,17 @@ function renderPlates() {
                 window.Sharer.init();
             });
 
+            window.Sharer.init();
+
             //Popover manual event
             $("[data-toggle=popover]").click(function(){
                 $("[data-toggle=popover]").not($(this)).popover('hide');
                 $(this).popover('toggle');
+            });
+
+            //Fab event
+            $(".fab-checkbox").click(function(){
+                $('.fab-checkbox').not($(this)).prop("checked",false);
             });
 
             //Popover hide
