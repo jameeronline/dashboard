@@ -329,7 +329,7 @@ function renderPlates() {
                             <div class="ribbon ${palateCategories[auctionCategory-1]}"><span>${label_categories[auctionCategory-1]}</span></div>
                             <div class="card__platenumber">
                                 <div class="card__platenumber--info">
-                                    <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-toggle="popover" data-popover-content="#social-share-icons-${i}">
+                                    <a class="social-share social-share-desktop" href="javascript:void(0)" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-popover-content="#social-share-icons-${i}">
                                         <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
                                         <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
                                     </a>
@@ -415,6 +415,11 @@ function renderPlates() {
             $("[data-toggle=popover]").on('shown.bs.popover', function () {
                 window.Sharer.init();
             });
+
+            //Toggle Popover
+            // $(".social-share-desktop[aria-describedby]").click(function(){
+            //     $("[data-toggle=popover]").popover('hide');
+            // });
 
             //Init social share - desktop
             // $('.social-share-desktop').click(function(event){
