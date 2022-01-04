@@ -284,13 +284,13 @@ function renderPlates() {
                     description: '',
                     hashTags: "absher,auction",
                     url: "https://jameeronline.github.io/dashboard/",
-                    plateID: plateNumber + reversePlateLetter(plateLetterEn).replaceAll(' ', '')
+                    plateID: reversePlateLetter(plateLetterEn).replaceAll(' ', '') + plateNumber
                 };
 
                 if ($('body').hasClass('rtl')) {
-                    socialMediaProps.description = "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + "\r\n" + label_plateNumber + ": " + plateNumber.toIndiaDigits() + " " + plateLetterAr + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
+                    socialMediaProps.description = "أعجبتني هذي اللوحة المميزة في مزاد اللوحات على منصة أبشر وحبيت أشاركها معك " + "\r\n" + label_plateNumber + ": " + plateLetterAr + " " + plateNumber.toIndiaDigits() + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
                 }else{
-                    socialMediaProps.description = "I liked this plate on Absher E-Auction and would like to share it with you." + "\r\n" + label_plateNumber + ": " + plateNumber + " " + reversePlateLetter(plateLetterEn).replaceAll(' ', '') + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
+                    socialMediaProps.description = "I liked this plate on Absher E-Auction and would like to share it with you." + "\r\n" + label_plateNumber + ": " + reversePlateLetter(plateLetterEn).replaceAll(' ', '') + " " + plateNumber + "\r\n" + label_highestBidAmount + ": " + formatToCurrency(bidAmount) + " " + label_priceLabel + "\r\n";
                 }
 
                 var htmlMotorCyclePlate =
@@ -332,7 +332,10 @@ function renderPlates() {
                                     <img src="images/twitter.svg" alt="twitter" aria-hidden="true" />
                                 </a>
                                 <a class="fab-action fab-action-2" href="javascript:void(0)" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
-                                    <img src="images/whatsapp.svg" alt="twitter" aria-hidden="true" />
+                                    <img src="images/whatsapp.svg" alt="whatsapp" aria-hidden="true" />
+                                </a>
+                                <a class="fab-action fab-action-3" href="javascript:void(0)" data-clipboard-text="${socialMediaProps.description + '' + socialMediaProps.url + '#' + socialMediaProps.plateID}" data-sharer="clipboard" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
+                                    <img src="images/clipboard-alt.svg" alt="clipboard" aria-hidden="true" />
                                 </a>
                             </div>
                         </div>
@@ -391,6 +394,9 @@ function renderPlates() {
 
             //Init List.JS
             initListJS();
+
+            //init clipboard - copy text
+            new ClipboardJS('.fab-action-3');
 
             //init click to mazad
             $('.services-grid-item').click(function(){

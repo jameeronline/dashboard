@@ -604,7 +604,7 @@ a.round-button {
 .card__platenumber .card__platenumber--info {
   font-size: 16px;
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 28px;
 }
 
 .card__platenumber .card__platenumber--info > span {
@@ -1228,6 +1228,10 @@ a.round-button {
   background-color: #25d366;
 }
 
+.social-share-icons a[data-sharer="clipboard"] {
+  background-color: #888;
+}
+
 .social-share-icons a[data-sharer="snapchat"] {
   background-color: #fffc00;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -1390,23 +1394,33 @@ a.round-button {
 }
 
 .ltr .fab-wheel .fab-action-1 {
-    left: 4rem;
-    top: -1rem;
+    left: 3.5rem;
+    top: -2rem;
 }
 
 .ltr .fab-wheel .fab-action-2 {
     left: 3rem;
-    bottom: 4rem;
+    bottom: 5rem;
+}
+
+.ltr .fab-wheel .fab-action-3 {
+    left: -1rem;
+    bottom: 3rem;
 }
 
 .rtl .fab-wheel .fab-action-1 {
-    right: 4rem;
-    top: -1rem;
+    right: 3.5rem;
+    top: -2rem;
 }
 
 .rtl .fab-wheel .fab-action-2 {
     left: 3rem;
-    bottom: 4rem;
+    bottom: 5rem;
+}
+
+.rtl .fab-wheel .fab-action-3 {
+    right: -1rem;
+    bottom: 3rem;
 }
 
 .fab-wrapper .social-share-icons a{
