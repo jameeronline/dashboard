@@ -325,7 +325,7 @@ function renderPlates() {
                             <input id="fabCheckbox-${i}" type="checkbox" class="fab-checkbox" />
                             <label class="fab" for="fabCheckbox-${i}">
                                 <img src="images/share-icon.png" alt="share" aria-hidden="true" width="18" class="share-closed" />
-                                <img src="images/close-icon.png" alt="share" aria-hidden="true" width="20" class="share-opened" />
+                                <img src="images/close-icon.png" alt="close" aria-hidden="true" width="18" class="share-opened" />
                             </label>
                             <div class="fab-wheel social-share-icons">
                                 <a class="fab-action fab-action-1" href="javascript:void(0)" data-sharer="twitter" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
