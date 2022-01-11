@@ -324,35 +324,35 @@ function renderPlates() {
                         <div class="fab-wrapper social-share-desktop">
                             <input id="fabCheckbox-${i}" type="checkbox" class="fab-checkbox" />
                             <label class="fab" for="fabCheckbox-${i}">
-                                <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="18" class="share-closed" />
-                                <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
+                                <img src="images/share-icon.png" alt="share" aria-hidden="true" width="18" class="share-closed" />
+                                <img src="images/close-icon.png" alt="share" aria-hidden="true" width="20" class="share-opened" />
                             </label>
                             <div class="fab-wheel social-share-icons">
                                 <a class="fab-action fab-action-1" href="javascript:void(0)" data-sharer="twitter" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
-                                    <img src="images/twitter.svg" alt="twitter" aria-hidden="true" />
+                                    <img src="images/twitter.png" alt="twitter" aria-hidden="true" />
                                 </a>
                                 <a class="fab-action fab-action-2" href="javascript:void(0)" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
-                                    <img src="images/whatsapp.svg" alt="whatsapp" aria-hidden="true" />
+                                    <img src="images/whatsapp.png" alt="whatsapp" aria-hidden="true" />
                                 </a>
                                 <a class="fab-action fab-action-3" href="javascript:void(0)" data-clipboard-text="${socialMediaProps.description + '' + socialMediaProps.url + '#' + socialMediaProps.plateID}" data-sharer="clipboard" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
-                                    <img src="images/clipboard-alt.svg" alt="clipboard" aria-hidden="true" />
+                                    <img src="images/clipboard-alt.png" alt="clipboard" aria-hidden="true" />
                                 </a>
                             </div>
                         </div>
                         <a class="social-share social-share-desktop hide" href="javascript:void(0)" tabindex="0" role="button" data-trigger="manual" data-toggle="popover" data-trigger="focus" data-popover-content="#social-share-icons-${i}">
-                            <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
-                            <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
+                            <img src="images/share-icon.png" alt="share" aria-hidden="true" width="20" class="share-closed" />
+                            <img src="images/close-icon.png" alt="share" aria-hidden="true" width="20" class="share-opened" />
                         </a>
                         <a class="social-share social-share-mobile hide" href="javascript:void(0)" tabindex="0" role="button" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}">
-                            <img src="images/share-icon.svg" alt="share" aria-hidden="true" width="20" class="share-closed" />
-                            <img src="images/close-icon.svg" alt="share" aria-hidden="true" width="20" class="share-opened" />
+                            <img src="images/share-icon.png" alt="share" aria-hidden="true" width="20" class="share-closed" />
+                            <img src="images/close-icon.png" alt="share" aria-hidden="true" width="20" class="share-opened" />
                         </a>
                         <div class="social-share-icons-wrapper hide" id="social-share-icons-${i}">
                             <div class="popover-heading">Social Share Options</div>
                             <div class="popover-body">
                                 <div class="social-share-icons">
-                                    <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/twitter.svg" alt="twitter" aria-hidden="true" width="20" /></a>
-                                    <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/whatsapp.svg" alt="twitter" aria-hidden="true" width="20" /></a>
+                                    <a href="javascript:void(0)" class="button" data-sharer="twitter" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/twitter.png" alt="twitter" aria-hidden="true" width="20" /></a>
+                                    <a href="javascript:void(0)" class="button" data-sharer="whatsapp" data-title="${socialMediaProps.description}" data-url="${socialMediaProps.url+'#'+socialMediaProps.plateID}"><img src="images/whatsapp.png" alt="twitter" aria-hidden="true" width="20" /></a>
                                 </div>
                             </div>
                         </div>
