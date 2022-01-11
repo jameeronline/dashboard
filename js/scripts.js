@@ -283,7 +283,7 @@ function renderPlates() {
                 let socialMediaProps = {
                     description: '',
                     hashTags: "absher,auction",
-                    url: "https://jameeronline.github.io/dashboard/",
+                    url: "https://mazad.absher.sa/portal/auction-dashboard/",
                     plateID: reversePlateLetter(plateLetterEn).replaceAll(' ', '') + plateNumber
                 };
 
