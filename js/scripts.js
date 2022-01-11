@@ -283,7 +283,7 @@ function renderPlates() {
                 let socialMediaProps = {
                     description: '',
                     hashTags: "absher,auction",
-                    url: "https://mazad.absher.sa/portal/auction-dashboard/",
+                    url: "https://mazad.absher.sa/portal/auction-dashboard/"+ $('body').hasClass('rtl') ? "index.html" : "index-en.html",
                     plateID: reversePlateLetter(plateLetterEn).replaceAll(' ', '') + plateNumber
                 };
 
