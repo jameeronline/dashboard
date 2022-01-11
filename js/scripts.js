@@ -280,10 +280,11 @@ function renderPlates() {
                 let auctionDataReloadedTime = field.auctionDataReloadedTime;
                 let counterLabel = auctionStatus == 3 ? label_auctionStart : label_auctionEnd;
                 let plateType = palateTypes[palateTypes.map(function (item) { return item.id; }).indexOf(plateTypeID)];
+                let urlRedirect = $('body').hasClass('rtl') ? "index.html" : "index-en.html";
                 let socialMediaProps = {
                     description: '',
                     hashTags: "absher,auction",
-                    url: "https://mazad.absher.sa/portal/auction-dashboard/"+ $('body').hasClass('rtl') ? "index.html" : "index-en.html",
+                    url: "https://mazad.absher.sa/portal/auction-dashboard/" + urlRedirect,
                     plateID: reversePlateLetter(plateLetterEn).replaceAll(' ', '') + plateNumber
                 };
 
